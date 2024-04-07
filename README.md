@@ -3,7 +3,47 @@
 The Real-Time Task Scheduler GUI is a Python utility offering an interactive interface for task management and scheduling, employing a variety of real-time scheduling algorithms.
 
 ## System Architecture Diagram
-![Unified Modeling Language Diagram](repo_images/uml.svg)
+
++---------------------+            +-------------+
+|   SchedulerGUI     |            |     Task    |
+|--------------------|            |-------------|
+|                     \          /               |
+|   +--------------+   \ contains /    +-------+|
+|   | add_task()   |---\------->/-----| get_  ||
+|   +--------------+    \            | name()||
+|                       \           |-------+--|
+|   +--------------+     \contains /+-------+  |
+|   | remove_task()|------->-----/ |get_   |  |
+|   +--------------+     /         |arrival|  |
+|                       /          |_time()|  |
+|   +--------------+    /           +-------+  |
+|   | edit_task()  |-->/ contains              |
+|   +--------------+   /            +-------+  |
+|                       \           |get_   |  |
+|   +--------------+     \contains /|deadline|  |
+|   | save_tasks() |------->-----/ |_()    |  |
+|   +--------------+     /          +-------+  |
+|                       /                      |
+|   +--------------+   /                       |
+|   | load_tasks() |---                        |
+|   +--------------+                          |
+|                                              |
+|   +--------------+                          |
+|   | schedule_    |                          |
+|   |  tasks()     |                          |
+|   +--------------+                          |
+|                                              |
+|   +--------------+                          |
+|   | plot_gantt   |                          |
+|   | _chart()     |                          |
+|   +--------------+                          |
+|                                              |
+|   +--------------+                          |
+|   | view_task    |                          |
+|   | _details()   |                          |
+|   +--------------+                          |
++---------------------+            +-------------+
+
 
 ## Key Features
 
